@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>App Web de Colagens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js" type="text/javascript"></script>7
+    <style>
+   body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, #4a90e2, #005cba);
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-top: 0;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+h3, h4 {
+  color: #ffffff;
+}
+
+button.btn-primary {
+  margin-top: 10px;
+  background-color: #4a90e2;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+  background-color: #357ac8;
+}
+
+#camera {
+  width: 280px;
+  height: 280px;
+  margin: 10px 0;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+#resultShow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#resultShow img {
+  max-width: 30%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+  
+  
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Aplicativo Web de Colagem</h1>
+        <hr>
+        <h4>Assim que o pop-up aparecer, clique em Permitir. Depois, forneça um comando.</h4>
+        <h3>Instruções de Uso:</h3>
+        <p>Clique no botão abaixo para capturar uma selfie com sua webcam:</p>
+        <button class="btn btn-primary" onClick="save()">Capturar Selfie</button>
+        <hr>
+        <h4>Pressione o botão acima para capturar uma selfie.</h4>
+        <label>Câmera:</label>
+        <div id="camera">
+            <!-- Aqui será carregada a pré-visualização da webcam -->
+        </div>
+        <label>Todas as selfies serão exibidas aqui:</label>
+        <div id="resultShow">
+            <div id="result1">
+                <img src="0.jpg" alt="Imagem 1" style="width: 30%;">
+            </div>
+            <div id="result2">
+                <img src="download.jpeg" alt="Imagem 2" style="width: 50%;">
+            </div>
+            <div id="result3">
+                <img src="via-lactea.jpg" alt="Imagem 3" style="width: 30%;">
+            </div>
+        </div>
+        
+    </center>
+    <script>
+        Webcam.set({
+          width: 280,
+          height: 280,
+          image_format: 'jpeg',
+          jpeg_quality: 90
+        });
+      
+        Webcam.attach('#camera');
+      
+        function save() {
+          Webcam.snap(function(data_uri) {
+            let resultDiv = document.getElementById('resultShow');
+            let newImage = document.createElement('img');
+            newImage.src = data_uri;
+            newImage.style.width = '30%';
+            
+            if (resultDiv.childElementCount >= 3) {
+              resultDiv.removeChild(resultDiv.firstChild);
+            }
+            
+            resultDiv.appendChild(newImage);
+          });
+        }
+      </script>
+</body>
+
+</html>

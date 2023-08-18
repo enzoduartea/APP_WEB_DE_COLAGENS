@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    margin-top: 0;
+  }
+  
+  h3, h4 {
+    color: #666;
+  }
+  
+  button.btn-primary {
+    margin-top: 10px;
+  }
+  
+  #camera {
+    width: 280px;
+    height: 280px;
+    margin: 10px 0;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+  }
+  
+  #resultShow {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  #resultShow img {
+    max-width: 30%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  
